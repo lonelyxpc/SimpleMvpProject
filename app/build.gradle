@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId  rootProject.ext.versions["applicationId"]
+        minSdkVersion rootProject.ext.versions["minSdkVersion"]
+        targetSdkVersion rootProject.ext.versions["targetSdkVersion"]
+        versionCode rootProject.ext.versions["versionCode"]
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // butterknife
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.implementations["androidx-appcompat"]
+    implementation rootProject.ext.implementations["androidx-constraintlayout"]
+    implementation rootProject.ext.implementations["recyclerview"]
+    //retrofit2
+    implementation rootProject.ext.implementations["retrofit2"]
+    implementation rootProject.ext.implementations["retrofit2-converter-gson"]
+    implementation rootProject.ext.implementations["retrofit2-adapter-rxjava2"]
+    // 用Gson解析json的转换器
+    implementation rootProject.ext.implementations["gson"]
+    //rxjava2
+    implementation rootProject.ext.implementations["reactivex-rxjava2-rxandroid"]
+    implementation rootProject.ext.implementations["reactivex-rxjava2-rxjava"]
+    implementation rootProject.ext.implementations["okhttp3-logging-interceptor"]
+
+    //AgentWeb
+    implementation  rootProject.ext.implementations["agentweb-agentweb"] // (必选)
+    implementation rootProject.ext.implementations["agentweb-filechooser"] // (可选)
+    implementation rootProject.ext.implementations["Downloader"]// (可选)
+
+    //butterknife
+    implementation rootProject.ext.implementations["butterknife"]
+
+    implementation rootProject.ext.implementations["supportv7"]
+
+    annotationProcessor rootProject.ext.implementations["butterknife-compiler"]
+
+    //permissionX
+    implementation rootProject.ext.implementations["permissionx"]
+
+    //design库
+    implementation  rootProject.ext.implementations["material"]
+    //下拉刷新
+    implementation  rootProject.ext.implementations["swiperefreshlayout"]
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}
