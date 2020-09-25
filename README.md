@@ -9,3 +9,6 @@
 # 其余还包括 butterknife permissionx material
 
 # 框架中还包括一些异常信息捕获工具，加密工具 进程保活 
+
+
+# activity 快速创建工具  https://github.com/lonelyxpc/mvp_project
